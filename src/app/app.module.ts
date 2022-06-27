@@ -6,10 +6,13 @@ import { HttpClientModule } from "@angular/common/http"
 import { AppComponent } from "./root-cmp/app.component"
 import { HomepageComponent } from "./pages/homepage/homepage.component";
 import { AppHeaderComponent } from './cmps/app-header/app-header.component';
-import { ContactsPageComponent } from './pages/contacts-page/contacts-page.component'
+import { ContactsPageComponent } from './pages/contacts-page/contacts-page.component';
+import { ContactsFilterComponent } from './cmps/contacts-filter/contacts-filter.component';
+import { ContactsListComponent } from './cmps/contacts-list/contacts-list.component';
+import { ContactsPreviewComponent } from './cmps/contacts-preview/contacts-preview.component'
 
 @NgModule({
-  declarations: [AppComponent, HomepageComponent, AppHeaderComponent, ContactsPageComponent],
+  declarations: [AppComponent, HomepageComponent, AppHeaderComponent, ContactsPageComponent, ContactsFilterComponent, ContactsListComponent, ContactsPreviewComponent],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [],
   bootstrap: [AppComponent],

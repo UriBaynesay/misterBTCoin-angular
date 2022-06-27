@@ -1,1 +1,5 @@
-<p>contacts-page works!</p>
+<section class="contacts-container">
+    <h1>Contacts</h1>
+    <contacts-filter></contacts-filter>
+    <contacts-list *ngIf="contacts$|async" [contacts]="(contacts$|async)!"></contacts-list>
+</section>

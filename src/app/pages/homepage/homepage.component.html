@@ -1,1 +1,4 @@
-<p>homepage works!</p>
+<section class="user-details" *ngIf="user">
+    <h1>Welcome back {{user.name}}</h1>
+    <pre *ngIf="btcRate">Your current balance is : $ {{user.coins/btcRate}}</pre>
+</section>

@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { User } from '../model/user'
 
 @Injectable({
   providedIn: 'root',
@@ -10,7 +11,7 @@ export class UserService {
     moves: [],
   };
 
-  get getUser(){
-    return this.user
+  get getUser():User{
+    return this.user as User
   }
 }

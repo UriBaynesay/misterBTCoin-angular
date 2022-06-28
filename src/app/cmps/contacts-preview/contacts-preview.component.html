@@ -1,8 +1,15 @@
 <article class="contact-preview-container">
+  <a [routerLink]="['/contact', contact._id]" class="contact-preview-info">
     <div class="img-container">
-        <img [src]="contact.imgUrl" alt="">
+      <img [src]="contact.imgUrl" alt="" />
     </div>
-    <h2>{{contact.name}}</h2>
-    <pre>Email : {{contact.email}}</pre>
-    <pre>Phone : {{contact.phone}}</pre>
+    <h2>{{ contact.name }}</h2>
+    <p>Email : {{ contact.email }}</p>
+    <p>Phone : {{ contact.phone }}</p>
+  </a>
+
+  <div class="contact-preview-controls">
+    <button (click)="onRemove()" class="remove-contact-btn">Remove</button>
+    <a [routerLink]="['/contact/edit', contact._id]">Edit</a>
+  </div>
 </article>

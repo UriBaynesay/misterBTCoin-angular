@@ -48,10 +48,8 @@ ul{
 button {
     font-family: inherit;
     cursor: pointer;
-
-    * {
-        pointer-events: none;
-    }
+    border: none;
+    background-color: transparent;
 }
 
 input {

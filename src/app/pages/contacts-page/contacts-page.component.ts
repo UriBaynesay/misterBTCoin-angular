@@ -15,6 +15,10 @@ export class ContactsPageComponent implements OnInit {
 
   ngOnInit(): void {
     this.contactsService.loadContacts()
-    this.contacts$=this.contactsService.contacts$
+    this.contacts$ = this.contactsService.contacts$
+  }
+
+  removeContact(contactId:string){
+    this.contactsService.deleteContact(contactId)
   }
 }

@@ -1,5 +1,5 @@
 <section class="contacts-container">
     <h1>Contacts</h1>
     <contacts-filter></contacts-filter>
-    <contacts-list *ngIf="contacts$|async" [contacts]="(contacts$|async)!"></contacts-list>
+    <contacts-list *ngIf="contacts$|async" [contacts]="(contacts$|async)!" (removeContact)="removeContact($event)"></contacts-list>
 </section>

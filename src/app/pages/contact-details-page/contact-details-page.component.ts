@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router'
+import { Contact } from 'src/app/model/contact'
 
 @Component({
   selector: 'contact-details-page',
@@ -6,10 +8,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./contact-details-page.component.scss']
 })
 export class ContactDetailsPageComponent implements OnInit {
+  contact!:Contact
 
-  constructor() { }
+  constructor(private route:ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.route.data.subscribe(data=>{
+      this.contact = data['contact']
+    })
   }
 
 }

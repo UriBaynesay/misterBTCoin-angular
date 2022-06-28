@@ -1,22 +1,21 @@
 export class Contact {
   constructor(
-    public _id?: string,
-    public name: string = '',
-    public email: string = '',
-    public phone: string = '',
-    public imgUrl?:string
+    public name: string = "",
+    public email: string = "",
+    public phone: string = "",
+    public imgUrl?: string,
+    public _id?: string
   ) {}
 
   setId?() {
-    var txt = '';
+    var txt = ""
     var possible =
-      'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+      "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"
 
     for (var i = 0; i < length; i++) {
-      txt += possible.charAt(Math.floor(Math.random() * possible.length));
+      txt += possible.charAt(Math.floor(Math.random() * possible.length))
     }
 
-    return txt;
-  
+    this._id = txt
   }
 }

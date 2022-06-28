@@ -1,5 +1,10 @@
 <section class="contacts-container">
-    <h1>Contacts</h1>
-    <contacts-filter></contacts-filter>
-    <contacts-list *ngIf="contacts$|async" [contacts]="(contacts$|async)!" (removeContact)="removeContact($event)"></contacts-list>
+  <h1>Contacts</h1>
+  <a [routerLink]="['/contact/edit']">Add contact</a>
+  <contacts-filter></contacts-filter>
+  <contacts-list
+    *ngIf="contacts$ | async"
+    [contacts]="(contacts$ | async)!"
+    (removeContact)="removeContact($event)"
+  ></contacts-list>
 </section>

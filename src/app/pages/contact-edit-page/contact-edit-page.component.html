@@ -1,0 +1,9 @@
+<section class="contact-edit-container">
+    <form #form="ngForm" (ngSubmit)="onSave()">
+        <input [(ngModel)]="contact.name" required type="text" name="name" placeholder="Contact's name">
+        <input [(ngModel)]="contact.phone" required type="tel" name="phone" placeholder="Contact's phone number">
+        <input [(ngModel)]="contact.email"  type="email" name="email" placeholder="Contact's email'">
+        <input [(ngModel)]="contact.imgUrl" type="url" name="imgUrl" placeholder="Contact's image link'">
+        <button [disabled]="form.invalid">Save</button>
+    </form>
+</section>

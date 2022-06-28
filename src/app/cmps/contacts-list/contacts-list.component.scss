@@ -1,0 +1,11 @@
+.contacts-list-container{
+    .contacts-grid-container{
+        display: grid;
+        grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
+        gap: 12px;
+        li{
+            border-radius: 1em;
+            border: 1px solid rgba(211, 211, 211, 0.795);
+        }
+    }
+}

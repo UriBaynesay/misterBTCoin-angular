@@ -1,0 +1,7 @@
+<section class="contacts-list-container">
+  <ul *ngIf="contacts" class="contacts-grid-container">
+    <li *ngFor="let contact of contacts">
+      <contacts-preview [contact]="contact" (removeContact)="removeContact.emit($event)"></contacts-preview>
+    </li>
+  </ul>
+</section>

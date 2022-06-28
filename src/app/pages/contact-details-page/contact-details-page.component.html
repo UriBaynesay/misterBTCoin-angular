@@ -1,1 +1,8 @@
-<p>contact-details-page works!</p>
+<section class="contact-details-container">
+    <div class="img-container">
+        <img [src]='"https://robohash.org/" + this.contact._id' alt="">
+    </div>
+    <h1>{{contact.name}}</h1>
+    <pre>{{contact.phone}}</pre>
+    <pre>{{contact.email}}</pre>
+</section>

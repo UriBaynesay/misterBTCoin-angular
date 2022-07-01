@@ -1,17 +1,26 @@
-import { Injectable } from '@angular/core';
-import { User } from '../model/user'
+import { Injectable } from "@angular/core"
+import { BehaviorSubject } from "rxjs"
+import { User } from "../model/user"
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: "root",
 })
 export class UserService {
   private user = {
-    name: 'Ochoa Hyde',
+    name: "Ochoa Hyde",
     coins: 100,
     moves: [],
-  };
+  }
 
-  get getUser():User{
-    return this.user as User
+  getUser$(credentails: { name: string}): BehaviorSubject<User|object>{
+    const user$=new BehaviorSubject({})
+    if(this.user.name===credentails.name) user$.next(this.user)
+    return user$
+  }
+
+  getLoggedInUser(){
+    const user = sessionStorage.getItem('loggedInUser')
+    if(!user) return {}
+    return JSON.parse(user)
   }
 }

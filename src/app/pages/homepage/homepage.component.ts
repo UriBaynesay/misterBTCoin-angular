@@ -23,7 +23,8 @@ export class HomepageComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.userSubscription=this.authService.loggedInUser$.subscribe(user=>{
-      if (user !== {}) this.user = user as User
+      debugger
+      if (Object.keys(user).length!==0) this.user = user as User
     })
     setTimeout(()=>{
       this.authService.login({ name: "Ochoa Hyde" })

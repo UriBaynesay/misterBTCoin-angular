@@ -5,6 +5,7 @@ import { ContactEditPageComponent } from "./pages/contact-edit-page/contact-edit
 import { ContactsPageComponent } from "./pages/contacts-page/contacts-page.component"
 import { HomepageComponent } from "./pages/homepage/homepage.component"
 import { LoginPageComponent } from "./pages/login-page/login-page.component"
+import { SignupPageComponent } from "./pages/signup-page/signup-page.component"
 import { ContactResolverResolver } from "./service/contact-resolver.resolver"
 
 const routes: Routes = [
@@ -15,6 +16,10 @@ const routes: Routes = [
   {
     path: "login",
     component: LoginPageComponent,
+  },
+  {
+    path: "signup",
+    component: SignupPageComponent,
   },
   {
     path: "contacts",

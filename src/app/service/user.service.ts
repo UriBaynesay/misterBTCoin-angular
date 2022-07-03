@@ -1,26 +1,48 @@
 import { Injectable } from "@angular/core"
-import { BehaviorSubject } from "rxjs"
+import { BehaviorSubject, lastValueFrom, of } from "rxjs"
 import { User } from "../model/user"
+import { LocalStorageService } from "./local-storage.service"
+
+const LOCAL_STORAGE_KEY = "users"
+setLocalStorage()
 
 @Injectable({
   providedIn: "root",
 })
 export class UserService {
-  private user = {
-    name: "Ochoa Hyde",
-    coins: 100,
-    moves: [],
+  private _users$ = new BehaviorSubject([])
+  users$ = this._users$.asObservable()
+
+  constructor(private localStorageService: LocalStorageService) {}
+
+  public query() {
+    const users = this.localStorageService.get(LOCAL_STORAGE_KEY)
+    this._users$.next(users)
+    return this.users$
   }
 
-  getUser$(credentails: { name: string}): BehaviorSubject<User|object>{
-    const user$=new BehaviorSubject({})
-    if(this.user.name===credentails.name) user$.next(this.user)
-    return user$
+  public getUserByName(credentails: { name: string }) {
+    const users = this.localStorageService.get(LOCAL_STORAGE_KEY)
+    const user = users.find((user: User) => user.name === credentails.name)
+    return of(user)
   }
 
-  getLoggedInUser(){
-    const user = sessionStorage.getItem('loggedInUser')
-    if(!user) return {}
+  public getLoggedInUser() {
+    const user = sessionStorage.getItem("loggedInUser")
+    if (!user) return {}
     return JSON.parse(user)
   }
+
+  public signup(credentails: { name: string }) {}
+}
+
+function setLocalStorage() {
+  const localStorageService = new LocalStorageService()
+  localStorageService.save(LOCAL_STORAGE_KEY, [
+    {
+      name: "Ochoa Hyde",
+      coins: 100,
+      moves: [],
+    },
+  ])
 }

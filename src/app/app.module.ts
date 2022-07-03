@@ -13,7 +13,8 @@ import { ContactsPreviewComponent } from "./cmps/contacts-preview/contacts-previ
 import { ContactDetailsPageComponent } from "./pages/contact-details-page/contact-details-page.component";
 import { ContactEditPageComponent } from './pages/contact-edit-page/contact-edit-page.component'
 import { FormsModule } from "@angular/forms";
-import { LoginPageComponent } from './pages/login-page/login-page.component'
+import { LoginPageComponent } from './pages/login-page/login-page.component';
+import { SignupPageComponent } from './pages/signup-page/signup-page.component'
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { LoginPageComponent } from './pages/login-page/login-page.component'
     ContactDetailsPageComponent,
     ContactEditPageComponent,
     LoginPageComponent,
+    SignupPageComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule,FormsModule],
   providers: [],

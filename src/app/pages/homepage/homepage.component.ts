@@ -23,12 +23,8 @@ export class HomepageComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.userSubscription=this.authService.loggedInUser$.subscribe(user=>{
-      debugger
       if (Object.keys(user).length!==0) this.user = user as User
     })
-    setTimeout(()=>{
-      this.authService.login({ name: "Ochoa Hyde" })
-    },2000)
     
     this.btcRateSubscription = this.bitcoinService
       .getRate()

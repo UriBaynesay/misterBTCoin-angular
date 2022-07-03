@@ -33,7 +33,24 @@ export class UserService {
     return JSON.parse(user)
   }
 
-  public signup(credentails: { name: string }) {}
+  public signup(credentails: { name: string }) {
+    const users = this.localStorageService.get(LOCAL_STORAGE_KEY)
+    if (users.find((user: User) => user.name === credentails.name)) return of(null)
+
+    const newUser = this.getEmptyUser()
+    newUser.name = credentails.name
+    users.push(newUser)
+    this.localStorageService.save(LOCAL_STORAGE_KEY, users)
+    this._users$.next(users)
+    return of(newUser)
+  }
+  public getEmptyUser() {
+    return {
+      name: "",
+      coins: 100,
+      moves: [],
+    }
+  }
 }
 
 function setLocalStorage() {

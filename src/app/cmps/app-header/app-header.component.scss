@@ -1,15 +1,8 @@
 .header-container {
+  margin-top: 10px;
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
-  .logo-container{
-    height: 100px;
-    width: 100px;
-    svg{
-        height: 100%;
-        width: 100%;
-    }
-  }
   nav {
     > *:not(:last-child) {
       margin-right: 15px;

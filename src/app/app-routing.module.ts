@@ -4,12 +4,17 @@ import { ContactDetailsPageComponent } from "./pages/contact-details-page/contac
 import { ContactEditPageComponent } from "./pages/contact-edit-page/contact-edit-page.component"
 import { ContactsPageComponent } from "./pages/contacts-page/contacts-page.component"
 import { HomepageComponent } from "./pages/homepage/homepage.component"
+import { LoginPageComponent } from "./pages/login-page/login-page.component"
 import { ContactResolverResolver } from "./service/contact-resolver.resolver"
 
 const routes: Routes = [
   {
     path: "",
     component: HomepageComponent,
+  },
+  {
+    path: "login",
+    component: LoginPageComponent,
   },
   {
     path: "contacts",

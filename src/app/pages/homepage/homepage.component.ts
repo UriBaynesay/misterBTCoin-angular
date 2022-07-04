@@ -1,6 +1,7 @@
 import { Component, OnDestroy, OnInit } from "@angular/core"
 import { Subscription } from "rxjs"
 import { User } from "src/app/model/user"
+import { AuthService } from "src/app/service/auth.service"
 import { BitcoinService } from "src/app/service/bitcoin.service"
 import { UserService } from "src/app/service/user.service"
 
@@ -12,21 +13,28 @@ import { UserService } from "src/app/service/user.service"
 export class HomepageComponent implements OnInit, OnDestroy {
   user!: User
   btcRate!: number
-  subscription!: Subscription
+  userSubscription!: Subscription
+  btcRateSubscription!: Subscription
 
   constructor(
-    private userService: UserService,
+    private authService:AuthService,
     private bitcoinService: BitcoinService
   ) {}
 
   ngOnInit(): void {
-    this.user = this.userService.getUser
-    this.subscription = this.bitcoinService.getRate().subscribe((rate) => {
-      this.btcRate = rate
+    this.userSubscription=this.authService.loggedInUser$.subscribe(user=>{
+      if (Object.keys(user).length!==0) this.user = user as User
     })
+    
+    this.btcRateSubscription = this.bitcoinService
+      .getRate()
+      .subscribe((rate) => {
+        this.btcRate = rate
+      })
   }
 
   ngOnDestroy(): void {
-    this.subscription.unsubscribe()
+    this.btcRateSubscription.unsubscribe()
+    this.userSubscription.unsubscribe()
   }
 }

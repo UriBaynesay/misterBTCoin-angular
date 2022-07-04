@@ -1,4 +1,4 @@
-<section class="user-details" *ngIf="user">
+<section *ngIf="user" class="user-details">
     <h1>Welcome back {{user.name}}</h1>
     <pre *ngIf="btcRate">Your current balance is : $ {{user.coins/btcRate}}</pre>
 </section>

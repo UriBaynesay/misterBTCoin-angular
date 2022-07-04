@@ -1,7 +1,7 @@
 <section class="contacts-container">
   <h1>Contacts</h1>
   <a [routerLink]="['/contact/edit']">Add contact</a>
-  <contacts-filter></contacts-filter>
+  <contacts-filter (onFilter)="onFilter($event)"></contacts-filter>
   <contacts-list
     *ngIf="contacts$ | async"
     [contacts]="(contacts$ | async)!"

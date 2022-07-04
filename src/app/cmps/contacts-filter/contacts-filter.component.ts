@@ -1,15 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Output } from "@angular/core"
 
 @Component({
-  selector: 'contacts-filter',
-  templateUrl: './contacts-filter.component.html',
-  styleUrls: ['./contacts-filter.component.scss']
+  selector: "contacts-filter",
+  templateUrl: "./contacts-filter.component.html",
+  styleUrls: ["./contacts-filter.component.scss"],
 })
-export class ContactsFilterComponent implements OnInit {
+export class ContactsFilterComponent  {
+  filterBy = { name: "" }
+  @Output() onFilter=new EventEmitter<{name:string}>()
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void {
+  public onChange=()=>{
+    this.onFilter.emit(this.filterBy)
   }
 
 }

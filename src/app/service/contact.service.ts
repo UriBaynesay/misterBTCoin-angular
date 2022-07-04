@@ -132,10 +132,10 @@ export class ContactService {
 
   constructor() {}
 
-  public loadContacts(filterBy?: { term: string }): void {
+  public loadContacts(filterBy?: { name: string }): void {
     let contacts = this._contactsDb
-    if (filterBy && filterBy.term) {
-      contacts = this._filter(contacts, filterBy.term)
+    if (filterBy && filterBy.name) {
+      contacts = this._filter(contacts, filterBy.name)
     }
     this._contacts$.next(this._sort(contacts))
   }

@@ -21,4 +21,8 @@ export class ContactsPageComponent implements OnInit {
   removeContact(contactId:string){
     this.contactsService.deleteContact(contactId)
   }
+
+  onFilter(ev:{name:string}){
+    this.contactsService.loadContacts(ev)
+  }
 }
